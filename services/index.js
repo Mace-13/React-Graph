@@ -40,33 +40,63 @@ export const getPosts = async () => {
   return result.postsConnection.edges;
 };
 
-// widget on the homepage get the most recent posts
-export const getRecentPosts = async () => {
+// get all categories
+export const getCategories = async () => {
   const query = gql`
-    query GetPostDetails(){
-      posts(
-        orderBy: createdAt_ASC
-        last: 3
-        ){
-          title
-          featuredImage {
+    query GetGategories {
+        categories {
+          name
+          slug
+        }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query);
+
+  return result.categories;
+};
+
+// get Post
+export const getPostDetails = async (slug) => {
+  const query = gql`
+    query GetPostDetails($slug : String!) {
+      post(where: {slug: $slug}) {
+        title
+        excerpt
+        featuredImage {
+          url
+        }
+        author{
+          name
+          bio
+          photo {
             url
           }
-          createdAt
+        }
+        createdAt
+        slug
+        content {
+          raw
+        }
+        categories {
+          name
           slug
         }
       }
-   `
-   const result = await request(graphqlAPI, query);
-   return result.posts
-  }
+    }
+  `;
 
-  // widget get the similar post on the post page
-  export const getSimilarPosts = async () => {
-    const query = gql`
+  const result = await request(graphqlAPI, query, { slug });
+
+  return result.post;
+};
+
+// widget get the similar post on the post page
+export const getSimilarPosts = async (categories, slug) => {
+  const query = gql`
     query GetPostDetails($slug: String!, $categories: [String!]) {
       posts(
-        where: { slug_not: $slug, AND: {categories_some: { slug_in: $categories }}}
+        where: {slug_not: $slug, AND: {categories_some: {slug_in: $categories}}}
         last: 3
       ) {
         title
@@ -77,24 +107,30 @@ export const getRecentPosts = async () => {
         slug
       }
     }
-      
-   `
-   const result = await request(graphqlAPI, query);
-   return result.posts
-  }
+  `;
+  const result = await request(graphqlAPI, query, { slug, categories });
 
-  // get all categories
-  export const getCategories = async () => {
-    const query = gql`
-      query GetGategories {
-          categories {
-            name
-            slug
-          }
+  return result.posts;
+};
+
+// widget on the homepage get the most recent posts
+export const getRecentPosts = async () => {
+  const query = gql`
+    query GetPostDetails() {
+      posts(
+        orderBy: createdAt_ASC
+        last: 3
+      ) {
+        title
+        featuredImage {
+          url
+        }
+        createdAt
+        slug
       }
-    `;
-  
-    const result = await request(graphqlAPI, query);
-  
-    return result.categories;
-  };
+    }
+  `;
+  const result = await request(graphqlAPI, query);
+
+  return result.posts;
+};
