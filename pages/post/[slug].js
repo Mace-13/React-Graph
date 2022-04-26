@@ -8,7 +8,7 @@ import { getPosts, getPostDetails } from '../../services'
 const PostDetails = ({ post }) => {
   const router = useRouter();
   
-  if(router.isFallBack) {
+  if(router.isFallback) {
     return <Loader />
   }
   return (
