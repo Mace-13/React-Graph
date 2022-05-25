@@ -14,17 +14,40 @@ body {
     content: "";
     width: 100%;
     height: 100vh;
-    //background: linear-gradient(to right bottom, #6d327c, #485DA6, #00a1ba, #01b18e, #32b37b);
-    // background: #D3D3D3;
-    background-image: url("../public/bg.jpg");
+    background-color: #F2DEDC;
     position: fixed;
     left: 0;
     top: 0;
     z-index: -1;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
   }
+}
+
+.homebg{
+  height: 600px;
+  background-image: url("../public/homebg.jpg");
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.homeBox{
+  background: rgba(60, 76, 89, 0.2);
+  backdrop-filter: blur(5px);
+}
+
+.title-font{
+  font-family: 'Kaushan Script', cursive;
+  font-family: 'PT Serif', serif;
+  color: #3C4C59;
+}
+
+.text-color{
+  color: #3C4C59;
+}
+
+.arrow-color{
+  color: white;
+  
 }
 
 .text-shadow{
