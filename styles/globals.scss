@@ -19,6 +19,7 @@ body {
     left: 0;
     top: 0;
     z-index: -1;
+    background-color: #F8F8F8;
   }
 }
 
@@ -35,16 +36,19 @@ body {
 }
 
 .homebg{
-  height: 600px;
+  height: 653px;
   background-image: url("../public/homebg.jpg");
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.homeBox{
-  background: rgba(60, 76, 89, 0.2);
-  backdrop-filter: blur(5px);
+
+.aboutBox{
+  background-image: url("../public/img2.jpg");
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .title-font{
@@ -55,8 +59,12 @@ body {
   color: #3C4C59;
 }
 
+.text-darkPink{
+  color: #B0626B;
+}
+
 .arrow-color{
-  color: white;
+  color: #F2DEDC;
   
 }
 

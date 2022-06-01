@@ -29,6 +29,9 @@ export const getPosts = async () => {
             categories {
               name
               slug
+              image {
+                url
+              }
             }
           }
         }
@@ -48,6 +51,9 @@ export const getCategories = async () => {
         categories {
           name
           slug
+          image{
+            url
+          }
         }
     }
   `;
@@ -82,6 +88,9 @@ export const getPostDetails = async (slug) => {
         categories {
           name
           slug
+          image {
+            url
+          }
         }
       }
     }
@@ -178,6 +187,9 @@ export const getCategoryPost = async (slug) => {
             categories {
               name
               slug
+              image {
+                url
+              }
             }
           }
         }

@@ -7,11 +7,11 @@ const Header = () => {
     let [open, setopen] = useState(false)
 
   return (
-    <nav className="flex items-center justify-between pt-5 lightPink">
+    <nav className="flex items-center justify-between lightPink">
          <img src={open ? "./icon-close.svg" : "./icon-hamburger.svg"} className="md:hidden  fixed right-5 cursor-pointer z-20 top-6" onClick={() => setopen(!open)} />
-         <div className='md:float-left block px-20 pb-10'>
+         <div className='md:float-left block px-20 pb-5'>
            <a href="/" className="">
-               <img src="./logoBlog.svg" className="mr-3 w-24 h-24" alt="Ohayo Logo" />
+               <img src="./logoBlog.svg" className="mr-3 w-24 h-24 pt-2" alt="Ohayo Logo" />
             </a>
          </div>
          
