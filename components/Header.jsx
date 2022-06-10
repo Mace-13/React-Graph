@@ -17,7 +17,7 @@ const Header = () => {
          
          
 
-         <ul className={`bg-[#ffffff14] backdrop-blur-md  md:pl-10 pr-28 md:static pb-5 fixed duration-500 ease-linear top-0 md:h-auto h-screen z-10 ${!open ? 'right-[-100%] ' : 'right-0'}`}>
+         <ul className={`bg-[#F2DEDC14] backdrop-blur-md  md:pl-10 pr-28 md:static pb-5 fixed duration-500 ease-linear top-0 md:h-auto h-screen z-10 ${!open ? 'right-[-100%] ' : 'right-0'}`}>
             <li className="md:inline-block  md:ml-10 ml-5 md:my-0 my-6 border-b-2 border-transparent hover:border-red-300 duration-300">
                <Link href="/">
                   <a className="cursor-pointer text-color text-lg inline-block md:py-5 py-3 ">Home</a>
@@ -29,12 +29,12 @@ const Header = () => {
                </Link>        
             </li>
             <li className="md:inline-block  md:ml-10 ml-5 md:my-0 my-6 border-b-2 border-transparent hover:border-red-300 duration-300">
-               <Link href="/">
+               <Link href="/gallery">
                   <a className="cursor-pointer text-color text-lg inline-block md:py-5 py-3 ">Galerie</a>
                </Link>        
             </li>
             <li className="md:inline-block  md:ml-10 ml-5 md:my-0 my-6 border-b-2 border-transparent hover:border-red-300 duration-300">
-               <Link href="/">
+               <Link href="/contact">
                   <a className="cursor-pointer text-color text-lg inline-block md:py-5 py-3 ">Contact</a>
                </Link>        
             </li>

@@ -50,7 +50,7 @@ const CommentsForm = ({ slug }) => {
 
   return (
     <div className='bg-white shadow-lg rounded-lg p-8 pb-12 mb-8'>
-      <h3 className='text-xl mb-8 font-semibold border-b pb-4'>Leave a comment : </h3>
+      <h3 className='text-xl mb-8 font-semibold border-b pb-4'>Votre commentaire : </h3>
       <div className='grid grid-cols-1 gap-4 mb-4'>
         <textarea 
           ref={commentEl} 
@@ -78,7 +78,7 @@ const CommentsForm = ({ slug }) => {
       <div className='grid grid-cols-1 gap-4 mb-4'>
         <div>
           <input ref={storeDataEl} type="checkbox" id='storeData' name='storeData' value='true' />
-          <label className='text-gray-500 cursor-pointer ml-2' htmlFor='storeData'>Stay connected</label>
+          <label className='text-gray-500 cursor-pointer ml-2' htmlFor='storeData'>Enregistrer vos infos</label>
         </div>
       </div>
       {error && <p className='text-xs text-red-500'>All fields are required.</p>}
@@ -86,11 +86,11 @@ const CommentsForm = ({ slug }) => {
         <button 
           type="button" 
           onClick={handleCommentSubmission}
-          className='transition duration-500 ease hover:bg-indigo-900 inline-block bg-pink-600 text-lg rounded-full text-white px-8 py-3 cursor-pointer'
+          className='transition duration-500 ease hover:bg-red-300 inline-block myGray text-base rounded-full text-white px-6 py-1 cursor-pointer'
           >
-          Submit     
+          Poster     
         </button>
-        {showSuccessMessage && <span className='text-xl float-right font-semibold mt-3 text-green-500'>Comment successfully sent</span> } 
+        {showSuccessMessage && <span className='text-base float-right font-semibold mt-3 text-green-500'>Votre commentaire a été envoyé</span> } 
       </div>
     </div>
   )

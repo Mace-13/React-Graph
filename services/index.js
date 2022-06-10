@@ -47,7 +47,7 @@ export const getPosts = async () => {
 // GET Categories 
 export const getCategories = async () => {
   const query = gql`
-    query GetGategories {
+    query GetCategories {
         categories {
           name
           slug
@@ -281,4 +281,25 @@ export const getRecentPosts = async () => {
   const result = await request(graphqlAPI, query);
 
   return result.posts;
+};
+
+// GET Photo -> galerie
+export const getPhotos = async () => {
+  const query = gql`
+    query GetPhotos {
+      photos {
+        id
+        pays
+        titre
+        description
+        images{
+          url
+        }
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query);
+
+  return result.photos;
 };
