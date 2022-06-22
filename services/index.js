@@ -292,7 +292,7 @@ export const getPhotos = async () => {
         pays
         titre
         description
-        images{
+        img{
           url
         }
       }

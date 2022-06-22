@@ -62,19 +62,53 @@ body {
 /*************  HOME  ****************/
 
 .homepage{
-  height: 656px;
-  background-image: url("../public/homepagebg.gif");
+  height: 88vh;
+  background-image: url("../public/homebg.jpg");
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
+.ohayo{
+  height: 200px;
+  line-height: 200px;
+  position: absolute;
+}
+.spinPlane{
+  animation-name: spin;
+  animation-duration: 6000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.plane{
+  width: 200px;
+  height: 200px;
+}
+
+.interest{
+  height: 45vh;
+}
+
 .aboutBox{
+  height: 45vh;
   background-image: url("../public/img2.jpg");
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 
 /*************  BLOG  ****************/
 

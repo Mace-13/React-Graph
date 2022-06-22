@@ -3,8 +3,8 @@ import Link from 'next/link';
 
 const Interests = () => {
   return (
-    <div class="mx-24 grid grid-cols-1 gap-20 pb-12 md:grid-cols-3 lg:grid-cols-3 lg:gap-20">
-        <div className="flex flex-col items-center justify-center">
+    <div class=" interest mx-24 grid grid-cols-1 gap-20 pb-12 md:grid-cols-3 lg:grid-cols-3 lg:gap-20">
+        <div className="flex flex-col items-center justify-center px-10">
           <div className="w-full">
             <img
               src="./iconBlog.svg"
@@ -28,7 +28,7 @@ const Interests = () => {
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-center ">
+        <div className="flex flex-col items-center justify-center px-10">
           <div className="w-full">
             <img
               src="./iconFood.svg"
@@ -52,7 +52,7 @@ const Interests = () => {
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center px-10">
           <div className="w-full">
             <img
               src="./iconFun.svg"

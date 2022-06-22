@@ -3,7 +3,10 @@ import { Photos } from "../../components"
 
 const Gallery = () => {
   return (
+    <>
       <Photos />
+    </>
+      
   );
 };
 
