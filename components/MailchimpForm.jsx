@@ -101,7 +101,7 @@ const CustomForm = ({ status, message, onSubmitted }) => {
 
 
 const MailchimpForm = props => {
-  const url = `https://gmail.us14.list-manage.com/subscribe/post?u=${process.env.REACT_APP_MAILCHIMP_U}&id=${process.env.REACT_APP_MAILCHIMP_ID}`;
+  const url = REACT_APP_MAILCHIMP_URL;
 
   return (
     <div className="mt-10 mb-10 flex justify-center">
