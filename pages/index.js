@@ -1,7 +1,7 @@
 import {useRef} from 'react'
 import Head from "next/head";
 import Link from "next/link";
-import { MailchimpForm } from "../components";
+import { NewsletterSubscribe } from "../components";
 import { Interests, About } from '../sections';
 
 
@@ -40,7 +40,7 @@ export default function Home() {
         <Interests />
       </div> 
       <About />
-      <MailchimpForm /> 
+      <NewsletterSubscribe /> 
     </div>
   );
 }

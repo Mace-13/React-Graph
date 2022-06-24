@@ -101,7 +101,7 @@ const CustomForm = ({ status, message, onSubmitted }) => {
 
 
 const MailchimpForm = props => {
-  const url = REACT_APP_MAILCHIMP_URL;
+  const url = process.env.REACT_APP_MAILCHIMP_URL;
 
   return (
     <div className="mt-10 mb-10 flex justify-center">
