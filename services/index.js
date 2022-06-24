@@ -7,7 +7,7 @@ const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 export const getPosts = async () => {
   const query = gql`
     query MyQuery {
-      postsConnection {
+      postsConnection() {
         edges {
           cursor
           node {
@@ -34,6 +34,9 @@ export const getPosts = async () => {
               }
             }
           }
+        }
+        pageInfo{
+          endCursor
         }
       }
     }
@@ -67,7 +70,9 @@ export const getCategories = async () => {
 export const getPostDetails = async (slug) => {
   const query = gql`
     query GetPostDetails($slug : String!) {
-      post(where: {slug: $slug}) {
+      post(
+        where: {slug: $slug}
+        ) {
         title
         excerpt
         featuredImage {

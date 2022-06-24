@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import MailchimpSubscribe from "react-mailchimp-subscribe";
 import InputField from "./InputField";
 
-const CustomForm = ({ status, message, onValidated }) => {
+const CustomForm = ({ status, message, onSubmitted }) => {
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -21,11 +21,11 @@ const CustomForm = ({ status, message, onValidated }) => {
   // function stop refreshing when submit, check if the values are good if false the form won't submit, onValidated will assign our state to the mailchimp values
   const handleSubmit = (e) => {
     e.preventDefault();
-    email &&
+      email &&
       firstName &&
       lastName &&
       email.indexOf("@") > -1 &&
-      onValidated({
+      onSubmitted({
         EMAIL: email,
         MERGE1: firstName,
         MERGE2: lastName,
@@ -34,7 +34,7 @@ const CustomForm = ({ status, message, onValidated }) => {
 
   return (
     <div className="grid-cols-1">
-      <form className="" onSubmit={(e) => handleSubmit(e)} method="POST">
+      <form className="" onSubmit={(e) => handleSubmit(e)} >
         <h3 className="title-font text-color mb-10 text-center text-3xl">
           {status === "success"
             ? "Success !"
@@ -99,6 +99,7 @@ const CustomForm = ({ status, message, onValidated }) => {
   );
 };
 
+
 const MailchimpForm = props => {
   const url = `https://gmail.us14.list-manage.com/subscribe/post?u=${process.env.REACT_APP_MAILCHIMP_U}&id=${process.env.REACT_APP_MAILCHIMP_ID}`;
 
@@ -110,7 +111,7 @@ const MailchimpForm = props => {
           <CustomForm
             status={status}
             message={message}
-            onValidated={formData => subscribe(formData)}
+            onSubmitted={formData => subscribe(formData)}
           />
         )}
       />

@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
+import React, { useState, useEffect } from "react";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
-import { FeaturedPostCard } from '../components';
-import { getFeaturedPosts } from '../services';
+import { FeaturedPostCard } from "../components";
+import { getFeaturedPosts } from "../services";
 
 const responsive = {
   superLargeDesktop: {
@@ -36,27 +36,57 @@ const FeaturedPosts = () => {
   }, []);
 
   const customLeftArrow = (
-    <div className="absolute left-0 arrow-btn cursor-pointer">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 arrow-color" viewBox="0 0 20 20" fill="currentColor">
-        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z" clip-rule="evenodd" />
+    <div className="arrow-btn absolute left-[-6px] cursor-pointer">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-15 w-15 text-pink-800"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M15.707 15.707a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414l5-5a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 010 1.414zm-6 0a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414l5-5a1 1 0 011.414 1.414L5.414 10l4.293 4.293a1 1 0 010 1.414z"
+          clip-rule="evenodd"
+        />
       </svg>
     </div>
   );
 
   const customRightArrow = (
-    <div className="absolute right-0 arrow-btn cursor-pointer">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 arrow-color" viewBox="0 0 20 20" fill="currentColor">
-        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd" />
+    <div className="arrow-btn absolute right-[-5px] cursor-pointer">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-15 w-15 text-pink-800"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+          clip-rule="evenodd"
+        />
+        <path
+          fill-rule="evenodd"
+          d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+          clip-rule="evenodd"
+        />
       </svg>
     </div>
   );
 
   return (
     <div className="mb-8 mt-8">
-      <Carousel infinite customLeftArrow={customLeftArrow} customRightArrow={customRightArrow} responsive={responsive} itemClass="px-4">
-        {dataLoaded && featuredPosts.map((post, index) => (
-          <FeaturedPostCard key={index} post={post} />
-        ))}
+      <Carousel
+        infinite
+        customLeftArrow={customLeftArrow}
+        customRightArrow={customRightArrow}
+        responsive={responsive}
+        itemClass="px-4"
+      >
+        {dataLoaded &&
+          featuredPosts.map((post, index) => (
+            <FeaturedPostCard key={index} post={post} />
+          ))}
       </Carousel>
     </div>
   );
