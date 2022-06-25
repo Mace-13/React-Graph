@@ -59,23 +59,6 @@ const CustomForm = ({ status, message, onSubmitted }) => {
           <div className="mc__field-container">
             <div className="align-center">
               <InputField
-                label="First Name"
-                onChangeHandler={setFirstName}
-                type="text"
-                value={firstName}
-                placeholder="Your first name..."
-                isRequired
-              />
-              <InputField
-                label="Last Name"
-                onChangeHandler={setLastName}
-                type="text"
-                value={lastName}
-                placeholder="Your last name..."
-                isRequired
-              />
-              <InputField
-                label="Email"
                 onChangeHandler={setEmail}
                 type="text"
                 value={email}
@@ -101,7 +84,7 @@ const CustomForm = ({ status, message, onSubmitted }) => {
 
 
 const MailchimpForm = props => {
-  const url = process.env.REACT_APP_MAILCHIMP_URL;
+  const url = `https://gmail.us14.list-manage.com/subscribe/post?u=${process.env.REACT_APP_MAILCHIMP_U}&id=${process.env.REACT_APP_MAILCHIMP_ID}`
 
   return (
     <div className="mt-10 mb-10 flex justify-center">

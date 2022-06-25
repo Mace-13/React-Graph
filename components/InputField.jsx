@@ -54,4 +54,4 @@ const InputField = props => {
 
 }
 
-export default React.memo(InputField);
+export default InputField;

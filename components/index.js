@@ -13,7 +13,6 @@ export { default as Footer } from './Footer';
 export { default as Photos } from './Photos';
 export { default as MailchimpForm } from './MailchimpForm';
 export { default as InputField } from './InputField';
-export { default as NewsletterForm } from './NewsletterForm';
-export { default as NewsletterSubscribe } from './NewsletterSubscribe';
+
 
 

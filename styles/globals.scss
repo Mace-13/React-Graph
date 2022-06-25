@@ -27,6 +27,10 @@ body {
   background-color: #F2DEDC;
 }
 
+.blue{
+  background-color: #A9F1DF
+}
+
 .darkPink{
   background-color: #B0626B;
 }
@@ -143,3 +147,20 @@ a {
 * {
   box-sizing: border-box;
 }
+
+
+
+/******************** CONTACT *************************/
+
+.contactPage{
+  height: 90vh;
+}
+
+.contactImg{
+  height:100%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+

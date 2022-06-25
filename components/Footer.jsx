@@ -1,11 +1,16 @@
 import React from "react";
+import MailchimpForm from "./MailchimpForm";
 
 const Footer = () => {
   return (
     <footer className="text-center relative inset-x-0 bottom-0 border-t border-stone-200">
-      <div className="pt-9">
-        <div className="mb-9 flex justify-center">
-          <a href="https://twitter.com/Mace55055893" className="mr-9 text-color hover:text-red-300">
+      <MailchimpForm />
+      <div className="lightPink py-4 px-12 flex flex-col md:flex-row justify-between">
+        <div className="mb-4">
+          @2022 React GraphQl blog
+        </div>
+        <div className="flex flex-row justify-center  ">
+             <a href="https://twitter.com/Mace55055893" className="mr-9 text-color hover:text-red-300">
             <svg
               aria-hidden="true"
               focusable="false"
@@ -73,10 +78,8 @@ const Footer = () => {
               ></path>
             </svg>
           </a>
-        </div>
-      </div>
-      <div className="text-center text-sm p-2 lightPink">
-          @2022 React GraphQl blog
+          </div>
+          
       </div>
     </footer>
   );
