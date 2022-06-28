@@ -44,7 +44,6 @@ export async function getStaticProps({ params }) {
     };
   }
   
-
 //dynamic routes to pre-render pages based on data
 export async function getStaticPaths(){
     const posts = await getPosts();

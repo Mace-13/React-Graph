@@ -1,8 +1,6 @@
 import React, {useEffect, useState } from 'react'
 import Link from 'next/link';
 
-import { getNavs } from '../services';
-
 const Header = () => {
     let [open, setopen] = useState(false)
 
@@ -35,7 +33,7 @@ const Header = () => {
             </li>
             <li className="md:inline-block  md:ml-10 ml-5 md:my-0 my-6 border-b-2 border-transparent hover:border-red-300 duration-300">
                <Link href="/contact">
-                  <a className="cursor-pointer text-color text-lg inline-block md:py-5 py-3 ">Contact</a>
+                  <a className="cursor-pointer text-color text-lg inline-block md:py-5 py-3 ">About</a>
                </Link>        
             </li>
              

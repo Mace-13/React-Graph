@@ -21,7 +21,7 @@ export default function Home() {
       </Head>
       <div className="homepage mb-10 flex flex-col place-items-center shadow-md">
         <h3 className="title-font mx-6 py-10 text-4xl text-white">
-          “ Don’t listen to what they say, go see ”
+          “ Le plus beau voyage, c'est celui qu'on n’a pas encore fait ”
         </h3>
         <div className="wrapper">
           <p className='ohayo text-sm font-thin text-color mx-12'>OHAYO BLOG</p>

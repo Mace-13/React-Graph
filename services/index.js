@@ -35,9 +35,6 @@ export const getPosts = async () => {
             }
           }
         }
-        pageInfo{
-          endCursor
-        }
       }
     }
   `;
@@ -106,6 +103,27 @@ export const getPostDetails = async (slug) => {
   return result.post;
 };
 
+// GET post by date time for the last 3
+export const getRecentPosts = async () => {
+  const query = gql`
+    query GetPostDetails() {
+      posts(
+        orderBy: createdAt_ASC
+        last: 3
+      ) {
+        title
+        featuredImage {
+          url
+        }
+        createdAt
+        slug
+      }
+    }
+  `;
+  const result = await request(graphqlAPI, query);
+
+  return result.posts;
+};
 
 // GET similar posts by categories
 export const getSimilarPosts = async (categories, slug) => {
@@ -266,27 +284,7 @@ export const getComments = async (slug) => {
 };
 
 
-// GET post by date time for the last 3
-export const getRecentPosts = async () => {
-  const query = gql`
-    query GetPostDetails() {
-      posts(
-        orderBy: createdAt_ASC
-        last: 3
-      ) {
-        title
-        featuredImage {
-          url
-        }
-        createdAt
-        slug
-      }
-    }
-  `;
-  const result = await request(graphqlAPI, query);
 
-  return result.posts;
-};
 
 // GET Photo -> galerie
 export const getPhotos = async () => {

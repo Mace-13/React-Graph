@@ -1,105 +1,56 @@
-import React, { useState, useEffect } from "react";
-import MailchimpSubscribe from "react-mailchimp-subscribe";
-import InputField from "./InputField";
+import React, {useState} from 'react';
+import axios from 'axios';
 
-const CustomForm = ({ status, message, onSubmitted }) => {
+
+const MailchimpForm = () => {
   const [email, setEmail] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [state, setState] = useState("IDLE");
+  const [error, setError] = useState(null);
 
-// to clear the input useEffect will run if the status is "success"
-  useEffect(() => {
-    if(status === "success") clearFields();
-  }, [status])
-
-  const clearFields = () => {
-    setFirstName('');
-    setLastName('');
-    setEmail('');
+  const subscribe = async() => {
+    setState("LOADING");
+    setError(null);
+    try{
+      const reponse = await axios.post("/api/mailchimp", {email});
+      setState("SUCCESS");
+    } catch(e) {
+      setError(e.response.data.error);
+      setState("ERROR");
+    }
   }
 
-  // function stop refreshing when submit, check if the values are good if false the form won't submit, onValidated will assign our state to the mailchimp values
-  const handleSubmit = (e) => {
-    e.preventDefault();
-      email &&
-      firstName &&
-      lastName &&
-      email.indexOf("@") > -1 &&
-      onSubmitted({
-        EMAIL: email,
-        MERGE1: firstName,
-        MERGE2: lastName,
-      });
-  };
-
   return (
-    <div className="grid-cols-1">
-      <form className="" onSubmit={(e) => handleSubmit(e)} >
-        <h3 className="title-font text-color mb-10 text-center text-3xl">
-          {status === "success"
-            ? "Success !"
-            : "Join our email list for future updates !"}
-        </h3>
-        {status === "sending" && (
-          <div className="text-blue-500">sending...</div>
-        )}
-        {status === "error" && (
-          <div
-            className="text-red-600"
-            dangerouslySetInnerHTML={{ __html: message }}
-          />
-        )}
-        {status === "success" && (
-          <div
-            className="text-emerald-500"
-            dangerouslySetInnerHTML={{ __html: message }}
-          />
-        )}
-
-          <div className="mc__field-container">
-            <div className="align-center">
-              <InputField
-                onChangeHandler={setEmail}
-                type="text"
-                value={email}
-                placeholder="Your email..."
-                isRequired
-              />
-            </div>
-          </div>
-       
-        {status === "success" ? "thanks you for register" : 
-          <div className="mt-8 text-center">
-          <InputField
-            label="subscribe"
-            type="submit"
-            formValues={[email, firstName, lastName]}
-          />
-        </div>
-        }
-      </form>
-    </div>
-  );
-};
-
-
-const MailchimpForm = props => {
-  const url = `https://gmail.us14.list-manage.com/subscribe/post?u=${process.env.REACT_APP_MAILCHIMP_U}&id=${process.env.REACT_APP_MAILCHIMP_ID}`
-
-  return (
-    <div className="mt-10 mb-10 flex justify-center">
-      <MailchimpSubscribe
-        url={url}
-        render={({ subscribe, status, message }) => (
-          <CustomForm
-            status={status}
-            message={message}
-            onSubmitted={formData => subscribe(formData)}
-          />
-        )}
+    <div className="flex flex-col items-center w-full p-8">
+    <h2 className="title-font text-color text-2xl text-center">
+      Inscrivez-vous à la Newsletter ! 
+    </h2>
+    <div className="flex w-1/2 lg:w-2/3 justify-center mt-5 flex-col lg:flex-row">
+      <input
+        className="mb-2 lg:mb-0 w-full lg:w-2/3 py-2 px-4 outline-none rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700 "
+        type="text"
+        placeholder="Enter Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
       />
+      <button
+        className={`lg:ml-2 w-full lg:w-40 darkPink inline-block transform cursor-pointer rounded-full text-md text-white transition duration-500  hover:bg-red-300 ${
+          state === "LOADING" ? "button-gradient-loading" : ""
+        }`}
+        type="button"
+        disabled={state === "LOADING"}
+        onClick={subscribe}
+      >
+        Subscribe
+      </button>
     </div>
-  );
-};
+    {state === "ERROR" && (
+      <p className="w-1/2 mt-2 text-red-600">{error}</p>
+    )}
+    {state === "SUCCESS" && (
+      <p className="w-1/2 mt-2 text-green-600">Success!</p>
+    )}
+  </div>
+  )
+}
 
-export default MailchimpForm;
+export default MailchimpForm

@@ -163,4 +163,12 @@ a {
   background-size: cover;
 }
 
+/********************************** FOOTER *************************/
+
+.button-gradient-loading {
+  background: linear-gradient(-45deg, #f5edd6, #fbd9c6, #f9b1b2, #e4a0a7);
+  background-size: 400% 400%;
+  animation: gradient 2s ease infinite;
+}
+
 
