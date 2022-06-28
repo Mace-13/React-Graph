@@ -15,6 +15,7 @@ function getRequestParams(email) {
 
     const base64ApiKey = Buffer.from(`anystring:${API_KEY}`).toString("base64");
     const headers = {
+        "Content-Type": "application/json",
         Authorization: `Basic ${base64ApiKey}`,
     };
 

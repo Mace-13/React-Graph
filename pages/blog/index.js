@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 import Head from 'next/head';
-import { PostCard, Categories, PostWidget } from '../../components';
+import { PostCard, Categories, PostWidget, ScrollToTop } from '../../components';
 import { getPosts } from '../../services'
 import { FeaturedPosts } from '../../sections';
 
@@ -17,6 +17,7 @@ export default function Blog({ posts}) {
             <div className='lg:sticky relative top-8'>
               <PostWidget/>
               <Categories/>
+              <ScrollToTop />
             </div>
         </div>
       </div>
