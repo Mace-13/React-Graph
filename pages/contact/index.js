@@ -20,8 +20,10 @@ const Contact = () => {
               
             />
             <div className="text-color my-4 text-center text-xl font-bold pb-4">
-              «Les gens ne font pas de voyages, ce sont les voyages qui font les
-              gens.»
+              « Les gens ne font pas de voyages, ce sont les voyages qui font les
+              gens. »
+             
+
             </div>
             <p className="text-color text-lg text-center">
               En général le choix d’ une destination de voyage se déroule un peu
