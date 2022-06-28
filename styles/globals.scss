@@ -153,14 +153,15 @@ a {
 /******************** CONTACT *************************/
 
 .contactPage{
-  height: 90vh;
+  height: 15vh;
+  
 }
 
 .contactImg{
   height:100%;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
+  min-width: 100%;
+  object-fit: cover;
+  
 }
 
 /********************************** FOOTER *************************/

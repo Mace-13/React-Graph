@@ -14,9 +14,10 @@ const Interests = () => {
         </div>
         <div className="pt-5 text-center font-normal text-gray-700">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-            ipsum metus, porta in tortor eu, lacinia finibus dolor. In vehicula,
-            neque et bibendum suscipit
+            {" "}
+            Venez découvrir les expériences de voyages de globe trotteurs ! Une
+            belle aventure vous attend sûrement. Le principal c’est de faire le
+            premier pas.{" "}
           </p>
         </div>
         <div className="pt-5 text-center">
@@ -38,9 +39,8 @@ const Interests = () => {
         </div>
         <div className="pt-5 text-center font-normal text-gray-700">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-            ipsum metus, porta in tortor eu, lacinia finibus dolor. In vehicula,
-            neque et bibendum suscipit
+            Les meilleures adresses et curiosités culinaires réunis ici. La
+            découverte d’une culture se fait avant tout par sa gastronomie.
           </p>
         </div>
         <div className="pt-5 text-center">
@@ -62,9 +62,8 @@ const Interests = () => {
         </div>
         <div className="pt-5 text-center font-normal text-gray-700">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-            ipsum metus, porta in tortor eu, lacinia finibus dolor. In vehicula,
-            neque et bibendum suscipit
+            Vos sorties improbables et les lieux secrets en quelques adresses.
+            Voici quelques idées pour vous offrir le meilleur du pays.
           </p>
         </div>
         <div className="pt-5 text-center">

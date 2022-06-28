@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
 
@@ -19,6 +19,16 @@ const MailchimpForm = () => {
     }
   }
 
+   // to clear the input useEffect will run if the status is "success"
+   useEffect(() => {
+    if(state === "SUCCESS") clearFields();
+  }, [state])
+
+  const clearFields = () => {
+    setEmail('');
+  }
+
+
   return (
     <div className="flex flex-col items-center w-full p-8">
     <h2 className="title-font text-color text-2xl text-center">
@@ -26,9 +36,9 @@ const MailchimpForm = () => {
     </h2>
     <div className="flex w-1/2 lg:w-2/3 justify-center mt-5 flex-col lg:flex-row">
       <input
-        className="mb-2 lg:mb-0 w-full lg:w-2/3 py-2 px-4 outline-none rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700 "
+        className="mb-2 lg:mb-0 w-full lg:w-2/3 py-2 px-4 border outline-red-300 rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700 "
         type="text"
-        placeholder="Enter Email"
+        placeholder="exemple@mail.com"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
@@ -47,7 +57,7 @@ const MailchimpForm = () => {
       <p className="w-1/2 mt-2 text-red-600">{error}</p>
     )}
     {state === "SUCCESS" && (
-      <p className="w-1/2 mt-2 text-green-600">Success!</p>
+      <p className="w-1/2 mt-2 text-green-600">Merci vous êtes bien inscrit !</p>
     )}
   </div>
   )
