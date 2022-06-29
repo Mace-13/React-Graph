@@ -15,15 +15,14 @@ function MyApp({ Component, pageProps }) {
 
   return(
     <>
-     {loading ? <div className="loadingImg flex mx-auto pt-12">
-      <img src="./loading.gif" alt="" />
-     </div> :
     <Layout>
-      
+       {loading ? <div className="loadingImg flex mx-auto pt-12">
+        <img src="./loading.gif" alt="" /></div>
+         :
       <Component {...pageProps} />
-       
+        }  
     </Layout>
-   }
+   
     </>
     
   )
